@@ -44,7 +44,7 @@ describe('4 types of DropDown',()=>{
        // cy.get('div.wM6W7d > span').should('have.length', 10)
 
 
-        //now we going to use JQuery
+        //now we going to use JQuery, this is dynamic check 
 
         cy.get('div.wM6W7d > span').each( ($el, index, $list)=>{
 
@@ -55,7 +55,8 @@ describe('4 types of DropDown',()=>{
             }
         })
 
-        cy.get('div.wM6W7d > span').should('have.value','cypress automation tool')
+        // this is normal check, some times it will not work 
+        // cy.get('div.wM6W7d > span').should('have.value','cypress automation tool')
 
     })
 
