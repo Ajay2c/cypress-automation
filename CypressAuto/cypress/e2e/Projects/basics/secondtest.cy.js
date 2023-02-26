@@ -1,18 +1,26 @@
 describe('My first test case',() =>{
-    it('verify title-positive',()=>{
 
-       cy.visit("https://opensource-demo.orangehrmlive.com/")
-       cy.title().should('eq','OrangeHRM')
+    // 1) Positive validation for title
+    
+    it('verify title-positive',()=>{
         
-        //steps
+        // Visit the website
+        cy.visit("https://opensource-demo.orangehrmlive.com/")
+        
+        // Verify that the title equals 'OrangeHRM'
+        cy.title().should('eq','OrangeHRM')
         
     })
 
-    it('verify title-negative',()=>{
+    // 2) Negative validation for title
 
-        //steps
+    it('verify title-negative',()=>{
+        
+        // Visit the website
         cy.visit("https://opensource-demo.orangehrmlive.com/")
-       cy.title().should('eq','OrangeHRM123456')
+        
+        // Verify that the title does not equal 'OrangeHRM123456'
+        cy.title().should('eq','OrangeHRM123456')
     })
 
 })
