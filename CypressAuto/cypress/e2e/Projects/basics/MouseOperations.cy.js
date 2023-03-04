@@ -1,3 +1,4 @@
+import 'cypress-iframe'
 require ('@4tw/cypress-drag-drop')
 
 describe('Mouse operations',()=>{
@@ -35,7 +36,7 @@ describe('Mouse operations',()=>{
 
     })
 
-    it.only('Drag and Drop',()=>{
+    it('Drag and Drop',()=>{
 
         cy.visit("http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html")
         cy.wait(3000)
@@ -52,7 +53,19 @@ describe('Mouse operations',()=>{
 
         cy.frameLoaded("#iframeResult")
 
-        cy.iframe("#iframeResult").find()
+        cy.iframe("#iframeResult").find("#field1").should('be.visible')
+        cy.iframe("#iframeResult").find("button[ondblclick='myFunction()']").trigger('dblclick') // or .dblclick()
+        cy.iframe("#iframeResult").find("#field2").should('have.value','Hello World!')
+        
+
+
+    })
+
+
+    it.only('Scroll down and view ',() => {
+
+        cy.visit("https://www.worldometers.info/geography/flags-of-the-world/")
+        cy.get("body div[class='container'] div[class='row'] div[class='col-md-8'] div[class='content-inner'] div div[class='row'] div:nth-child(79) div:nth-child(1)").scrollIntoView({duration:2000})
 
 
     })
