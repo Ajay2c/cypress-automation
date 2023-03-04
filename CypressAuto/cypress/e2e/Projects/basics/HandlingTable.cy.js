@@ -69,33 +69,35 @@ describe('Handling Table',()=>{
 
         let minpages = 5;
 
-        for(let p=1; p<=minpages;p++){
-
-            if (minpages>1){
-
+        // loop through the minimum number of pages to be checked
+        for (let p = 1; p <= minpages; p++) {
+        
+            // check if there are more than 1 pages
+            if (minpages > 1) {
+        
+                // print the active page number to the console
                 cy.log("Active page is ==> " + p);
-
-                cy.get(".pagination>li:nth-child("+p+")").click()
-                cy.wait(3000)
-
-                // now we going to get the datas and also pint in log 
-
+        
+                // click on the pagination control for the current page
+                cy.get(".pagination>li:nth-child(" + p + ")").click();
+                cy.wait(3000);
+        
+                // find the table data for the current page and log it to the console
                 cy.get(".table-responsive>table>tbody>tr")
-                .each(($row, index, $rows)=>{
-
-                    cy.wrap($row).within( ()=>{
-                        cy.get("td:nth-child(3)").then( (e) =>{
-
+                .each(($row, index, $rows) => {
+        
+                    // wrap the row element in order to search for data within it
+                    cy.wrap($row).within(() => {
+                        cy.get("td:nth-child(3)").then((e) => {
+        
+                            // log the text content of the cell to the console
                             cy.log(e.text());
-                        })
-                    })
-
-                })
-
-
+                        });
+                    });
+                });
             }
         }
-
+        
 
 
     });
