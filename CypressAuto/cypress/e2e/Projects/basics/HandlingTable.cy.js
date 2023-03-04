@@ -29,11 +29,12 @@ describe('Handling Table', () => {
     // test to verify the number of rows and columns in the customers table
     it('verifying customers Rows and Columns', () => {
 
-        // check the number of columns in the table
+        // Verify that the table has 7 columns and 10 rows
+        // check the number of columns in the table head
         cy.get(".table.table-bordered.table-hover>thead>tr>td")
             .should('have.length', 7)
 
-        // check the number of rows in the table
+        // check the number of rows in the table body 
         cy.get(".table.table-bordered.table-hover>tbody>tr")
             .should('have.length', 10)
 
@@ -46,8 +47,10 @@ describe('Handling Table', () => {
         cy.get(".table.table-bordered.table-hover>tbody>tr")
             .each(($row, index, $rows) => {
 
+
+                // Wrap the data in each row with "within" and store in a variable called "collectedRows"
                 // within each row, loop through each column
-                cy.wrap($row).within(() => {
+                cy.wrap($row).within((collectedRows) => {
 
                     cy.get("td").each(($col, index, $cols) => {
 
@@ -62,32 +65,42 @@ describe('Handling Table', () => {
     // test to get the number of pages in the pagination and log them
     it.only('Pagination we get the pages', () => {
 
+        // Declare a variable to hold the total number of pages
         let totalpages;
 
         // get the text of the pagination section which includes the number of pages
+        // Find an element on the page that contains information about the pagination control,
+        // then access its text content using the "then" function
         cy.get(".col-sm-6.text-end").then((textofpages) => {
 
+            // Extract the text content from the element and store it in a variable
             let NoPage = textofpages.text();
 
             // extract the total number of pages from the text
+            // Extract the total number of pages from the text content using the "substring" method
             totalpages = NoPage.substring(NoPage.indexOf("(") + 1, NoPage.indexOf("Pages") - 1);
 
             // log the total number of pages
+            // Print the total number of pages to the console for debugging or analysis purposes
             cy.log("The Total number of pages in a table =======>" + totalpages);
         });
 
 
+        // Declare a variable to hold the minimum number of pages to be checked
         let minpages = 5;
 
         // loop through the first 5 pages of the pagination
+        // Loop through the minimum number of pages to be checked
+
         for (let p = 1; p <= minpages; p++) {
 
+            // Check if there are more than 1 pages
             if (minpages > 1) {
 
-                // log the active page number
+                // Print the active page number to the console
                 cy.log("Active page is ==> " + p);
 
-                // click the current page number in the pagination
+                // Click on the pagination control for the current page
                 cy.get(".pagination>li:nth-child(" + p + ")").click()
 
                 // wait for 3 seconds for the table to load
