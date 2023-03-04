@@ -1,96 +1,108 @@
-describe('Handling Table',()=>{
+describe('Handling Table', () => {
 
+    // login as admin before each test
+    beforeEach('login as admin', () => {
 
-    beforeEach('login as admin',()=>{
-
+        // visit the login page
         cy.visit("https://demo.opencart.com/admin/index.php?route=common/login")
+
+        // enter username
         cy.get("#input-username").type('demo')
+
+        // enter password
         cy.get("#input-password").type("demo")
+
+        // click the login button
         cy.get("button[type='submit']").click()
+
+        // close the popup if it appears
         cy.get(".btn-close").click()
 
+        // click the customers link from the menu
         cy.get("#menu-customer>a").click()
+
+        // click the customers sub-menu item
         cy.get("#menu-customer>ul>li:first-child").click()
 
     })
-    it.skip('verifying customers Rows and Columns',()=>{
 
+    // test to verify the number of rows and columns in the customers table
+    it('verifying customers Rows and Columns', () => {
+
+        // check the number of columns in the table
         cy.get(".table.table-bordered.table-hover>thead>tr>td")
-        .should('have.length','7')
+            .should('have.length', 7)
 
+        // check the number of rows in the table
         cy.get(".table.table-bordered.table-hover>tbody>tr")
-        .should('have.length','10')
-
+            .should('have.length', 10)
 
     })
 
-    it.skip('getting data from rows and columns',()=>{
+    // test to get the data from each row and column in the table
+    it('getting data from rows and columns', () => {
 
-        cy.get(".table.table-bordered.table-hover>tbody>tr")// Using .each to iterate over each row in the table
-        .each(($row, index, $rows) =>{  
-                     
-            // Wrapping the data in each row with within, and storing in a variable called collectedData
-            cy.wrap($row).within((collectedData) =>{  
-        
-                
-                // Collecting the table data from the rows and storing it in a column
-                cy.get("td").each(($col, index, $cols) =>{ 
-                    // Converting from a string to text and logging to the console
-                    cy.log($col.text())  
-                } )
+        // loop through each row in the table
+        cy.get(".table.table-bordered.table-hover>tbody>tr")
+            .each(($row, index, $rows) => {
+
+                // within each row, loop through each column
+                cy.wrap($row).within(() => {
+
+                    cy.get("td").each(($col, index, $cols) => {
+
+                        // log the text content of each column
+                        cy.log($col.text())
+                    })
+                })
             })
-        })
-        
-
 
     })
 
+    // test to get the number of pages in the pagination and log them
+    it.only('Pagination we get the pages', () => {
 
-    it('Pagination we get the pages', () => {
-
-        // declare a variable to hold the total number of pages
         let totalpages;
-    
-        // find an element on the page that contains information about the pagination control,
-        // then access its text content using the "then" function
+
+        // get the text of the pagination section which includes the number of pages
         cy.get(".col-sm-6.text-end").then((textofpages) => {
-    
-            // extract the text content from the element and store it in a variable
-            let storeing_variable_Astext = textofpages.text();
-    
-            // extract the total number of pages from the text content using the "substring" method
-            totalpages = storeing_variable_Astext.substring(storeing_variable_Astext.indexOf("(") + 1, storeing_variable_Astext.indexOf("Pages") - 1);
-    
-            // print the total number of pages to the console for debugging or analysis purposes
+
+            let NoPage = textofpages.text();
+
+            // extract the total number of pages from the text
+            totalpages = NoPage.substring(NoPage.indexOf("(") + 1, NoPage.indexOf("Pages") - 1);
+
+            // log the total number of pages
             cy.log("The Total number of pages in a table =======>" + totalpages);
         });
 
-        // ----------------------------------------------------------------------------------------------------------------------------------------
 
         let minpages = 5;
 
-        // loop through the minimum number of pages to be checked
+        // loop through the first 5 pages of the pagination
         for (let p = 1; p <= minpages; p++) {
-        
-            // check if there are more than 1 pages
+
             if (minpages > 1) {
-        
-                // print the active page number to the console
+
+                // log the active page number
                 cy.log("Active page is ==> " + p);
-        
-                // click on the pagination control for the current page
-                cy.get(".pagination>li:nth-child(" + p + ")").click();
-                cy.wait(3000);
-        
-                // find the table data for the current page and log it to the console
+
+                // click the current page number in the pagination
+                cy.get(".pagination>li:nth-child(" + p + ")").click()
+
+                // wait for 3 seconds for the table to load
+                cy.wait(3000)
+
+                // loop through each row in the table
                 cy.get(".table-responsive>table>tbody>tr")
-                .each(($row, index, $rows) => {
-        
-                    // wrap the row element in order to search for data within it
-                    cy.wrap($row).within(() => {
-                        cy.get("td:nth-child(3)").then((e) => {
-        
-                            // log the text content of the cell to the console
+                    .each(($row, index, $rows) => {
+
+                        // within each row, get the text content of the third column
+                        cy.wrap($row).within(() => {
+
+                            cy.get("td:nth-child(3)").then((e) => {
+
+                            // log the text content of the third column
                             cy.log(e.text());
                         });
                     });
@@ -98,8 +110,6 @@ describe('Handling Table',()=>{
             }
         }
         
-
-
     });
     
 })
