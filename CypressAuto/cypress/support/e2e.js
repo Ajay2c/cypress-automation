@@ -22,3 +22,5 @@ import './commands'
 // after adding the ref command in command.js, we need to add this below command
 
 require('cypress-xpath')
+
+import 'cypress-mochawesome-reporter/register';

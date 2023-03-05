@@ -1,0 +1,90 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-03-05T13:34:45.415Z",
+    "end": "2023-03-05T13:34:47.805Z",
+    "duration": 2390,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bdad7de2-9fd2-4e1a-b482-e5f36ec01c73",
+      "title": "",
+      "fullFile": "cypress/e2e/Projects/basics/15-HTMLReports.cy.js",
+      "file": "cypress/e2e/Projects/basics/15-HTMLReports.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "An uncaught error was detected outside of a test",
+          "fullTitle": "An uncaught error was detected outside of a test",
+          "timedOut": null,
+          "duration": 1546,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "throw err;",
+          "err": {
+            "message": "TypeError: The following error originated from your test code, not from Cypress.\n\n  > Cannot read properties of undefined (reading 'native')\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n\nCypress could not associate this error to any specific test.\n\nWe dynamically generated a new test to display this failure.",
+            "estack": "TypeError: The following error originated from your test code, not from Cypress.\n\n  > Cannot read properties of undefined (reading 'native')\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n\nCypress could not associate this error to any specific test.\n\nWe dynamically generated a new test to display this failure.\n    at Object.eval (webpack:///./node_modules/mochawesome-report-generator/node_modules/fs-extra/lib/fs/index.js:121:0)\n    at ./node_modules/mochawesome-report-generator/node_modules/fs-extra/lib/fs/index.js (http://localhost:42691/__cypress/tests?p=cypress/e2e/Projects/basics/15-HTMLReports.cy.js:26555:30)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)\n    at ./node_modules/mochawesome-report-generator/node_modules/fs-extra/lib/index.js (webpack:///./node_modules/mochawesome-report-generator/node_modules/fs-extra/lib/index.js:5:5)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)\n    at Object.eval (webpack:///./node_modules/mochawesome-report-generator/lib/main.js:7:9)\n    at ./node_modules/mochawesome-report-generator/lib/main.js (http://localhost:42691/__cypress/tests?p=cypress/e2e/Projects/basics/15-HTMLReports.cy.js:25202:30)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)\n    at ./node_modules/mochawesome/src/mochawesome.js (webpack:///./node_modules/mochawesome/src/mochawesome.js:4:14)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)",
+            "diff": null
+          },
+          "uuid": "97cc6636-d93b-4199-b64f-5a5f42146f8f",
+          "parentUUID": "bdad7de2-9fd2-4e1a-b482-e5f36ec01c73",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [],
+      "failures": [
+        "97cc6636-d93b-4199-b64f-5a5f42146f8f"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 1546,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

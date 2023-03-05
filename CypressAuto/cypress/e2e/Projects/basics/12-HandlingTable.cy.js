@@ -95,7 +95,7 @@ describe('Handling Table', () => {
 
         for (let p = 1; p <= minpages; p++) {
 
-            // Check if there are more than 1 pages
+            // Check if there are more than p pages
             if (p <= minpages) {
 
                 // Print the active page number to the console
