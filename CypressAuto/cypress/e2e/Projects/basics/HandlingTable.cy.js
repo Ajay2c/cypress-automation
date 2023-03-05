@@ -78,6 +78,7 @@ describe('Handling Table', () => {
 
             // extract the total number of pages from the text
             // Extract the total number of pages from the text content using the "substring" method
+            // Showing 1 to 10 of 10864 (1087 Pages)
             totalpages = NoPage.substring(NoPage.indexOf("(") + 1, NoPage.indexOf("Pages") - 1);
 
             // log the total number of pages
@@ -95,7 +96,7 @@ describe('Handling Table', () => {
         for (let p = 1; p <= minpages; p++) {
 
             // Check if there are more than 1 pages
-            if (minpages > 1) {
+            if (p <= minpages) {
 
                 // Print the active page number to the console
                 cy.log("Active page is ==> " + p);
