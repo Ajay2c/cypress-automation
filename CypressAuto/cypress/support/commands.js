@@ -34,3 +34,13 @@ Cypress.Commands.add('getIframe',(iframe)=>{
         .should('be.visible')
         .then(cy.wrap);
 })
+
+
+// Login command for Raise application 
+
+Cypress.Commands.add('LoginUsers',(email,password)=>{
+
+    cy.get("#auth_login_email").type(email);
+    cy.get("#auth_login_password").type(password);
+    cy.get("button[type='submit']").click();
+})

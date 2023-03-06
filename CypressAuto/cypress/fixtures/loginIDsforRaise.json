@@ -1,0 +1,18 @@
+{
+
+    "St1OA":"raise1pstesting+onboardingagent1@gmail.com",
+    "St1OAPASS":"Platform.1",
+
+    "St2OA":"staging2.raise.testing+OA1@gmail.com",
+    "St2OAPASS":"Platform.1",
+    
+    "St3OA":"staging3.testing2022+OA1@gmail.com",
+    "St3OAPASS":"Platform.1",
+    
+    "St4OA":"staging4.testing2022+OA1@gmail.com",
+    "St4OAPASS":"Platform.1",
+
+    "BetaOA":"migration.testing2022+onboardingagent1@gmail.com",
+    "BetaOAPASS":"Platform.1"
+
+}
