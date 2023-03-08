@@ -63,7 +63,7 @@ describe('Handling Table', () => {
     })
 
     // test to get the number of pages in the pagination and log them
-    it.only('Pagination we get the pages', () => {
+    it('Pagination we get the pages', () => {
 
         // Declare a variable to hold the total number of pages
         let totalpages;

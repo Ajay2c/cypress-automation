@@ -62,7 +62,7 @@ describe('Mouse operations',()=>{
     })
 
 
-    it.only('Scroll down and view ',() => {
+    it('Scroll down and view ',() => {
 
         cy.visit("https://www.worldometers.info/geography/flags-of-the-world/")
         cy.get("body div[class='container'] div[class='row'] div[class='col-md-8'] div[class='content-inner'] div div[class='row'] div:nth-child(79) div:nth-child(1)").scrollIntoView({duration:2000})
