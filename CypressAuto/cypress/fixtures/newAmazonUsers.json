@@ -1,0 +1,26 @@
+[
+    {
+        "username":"Ajay",
+        "mobilenumber":"8855229966",
+        "email":"vijaysing@gmail.com",
+        "password":"123456@01"
+
+    },{
+        "username":"Ajay2",
+        "mobilenumber":"8855229965",
+        "email":"vijaysing01@gmail.com",
+        "password":"123456@02"
+    },
+    {
+        "username":"Ajay3",
+        "mobilenumber":"8855229964",
+        "email":"vijaysing02@gmail.com",
+        "password":"123456@03",
+        "expected":""
+    }        
+
+
+
+
+]
+

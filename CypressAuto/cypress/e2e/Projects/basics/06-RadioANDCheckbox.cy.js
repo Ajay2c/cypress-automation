@@ -1,7 +1,7 @@
 describe('Selecting Radio button & Check box',()=>{
 
     // Test for radio buttons
-    it.skip('Radio Button',()=>{
+    it('Radio Button',()=>{
         
         // Navigate to the web page being tested
         cy.visit("https://itera-qa.azurewebsites.net/home/automation")
