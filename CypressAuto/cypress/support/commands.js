@@ -37,7 +37,6 @@ Cypress.Commands.add('getIframe',(iframe)=>{
 
 
 // Login command for Raise application 
-
 Cypress.Commands.add('LoginUsers',(email,password)=>{
 
     cy.get("#auth_login_email").type(email);
